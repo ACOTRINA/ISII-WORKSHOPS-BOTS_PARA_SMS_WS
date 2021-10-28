@@ -1,27 +1,56 @@
 package ec.edu.espol.workshops;
 
 import java.util.*;
+/**
+* Marital Status
+*
+* @author Enrique Yugcha
+*/
 
 enum MaritalStatus {
-    married, not_married
-}
-;
+    married, not_married}
 
+
+/**
+* Class Car Insurance
+*
+* @author Enrique Yugcha
+*/
 public class CarInsurance {
-
+   /**
+    * Variable age in class car insurance
+    */
   private int age;
+  /**
+   * Variable gender in class car insurance
+   */
   private char gender;
+  /**
+   * Variable marital status in class car insurance
+   * 
+   * @author Enrique Yugcha
+   */
   private MaritalStatus status;
   // Premium base
   private static double premiumBase = 500.0f;
-
+  
+  /**
+   * Constructor method of the class Car Insurance
+   *
+   * @author Enrique Yugcha
+   */
   public CarInsurance(int age, char gender, MaritalStatus maritalStatus) {
     this.age = age;
     this.gender = gender;
     this.status = maritalStatus;
   }
   ;
-
+  
+  /**
+   * Method main in class car insurance
+   * 
+   * @author Enrique Yugcha
+   */
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     CarInsurance request = null;
@@ -39,7 +68,7 @@ public class CarInsurance {
         String status = sc.next();
 
         boolean validGender = gender.charAt(0) == 'M' || gender.charAt(0) == 'F';
-        boolean validStatus = status == "Casado" || status == "No Casado";
+        boolean validStatus = "Casado".equals(status) || "No Casado".equals(status);
 
         if (!validStatus && !validGender) {
           throw new Exception();    
