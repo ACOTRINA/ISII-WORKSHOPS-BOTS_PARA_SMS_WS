@@ -74,9 +74,8 @@ public class CarInsurance {
           throw new Exception();    
         }
           
-
-        request = new CarInsurance(Integer.parseInt(age), gender.charAt(0),
-                        status == "Casado" ? MaritalStatus.married : MaritalStatus.not_married);
+        
+        request = new CarInsurance(Integer.parseInt(age), gender.charAt(0), status.equals("Casado")?MaritalStatus.married:MaritalStatus.not_married);
 
         validData = true;
 
