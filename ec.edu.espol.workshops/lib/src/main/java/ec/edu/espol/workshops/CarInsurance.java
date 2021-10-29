@@ -60,38 +60,37 @@ public class CarInsurance {
     while (!validData) {
 
       try {
-        System.out.print("Ingrese la edad: ");
+        System.out.print("Enter your age: ");
         String age = sc.next();
-        System.out.print("Ingrese el genero(M o F): ");
+        System.out.print("Enter your gender(M o F): ");
         String gender = sc.next();
-        System.out.print("Ingrese el estado ( Casado o No Casado): ");
+        System.out.print("Enter your marital status (Married or Not Married): ");
         String status = sc.next();
 
         boolean validGender = gender.charAt(0) == 'M' || gender.charAt(0) == 'F';
-        boolean validStatus = "Casado".equals(status) || "No Casado".equals(status);
+        boolean validStatus = "Married".equals(status) || "Not married".equals(status);
 
         if (!validStatus && !validGender) {
           throw new Exception();    
         }
           
-        
-        request = new CarInsurance(Integer.parseInt(age), gender.charAt(0), status.equals("Casado")?MaritalStatus.married:MaritalStatus.not_married);
+        request = new CarInsurance(Integer.parseInt(age), gender.charAt(0), status.equals("Married")?MaritalStatus.married:MaritalStatus.not_married);
 
         validData = true;
 
       } catch (Exception e) {
-        System.out.println("Datos incorrectos");
+        System.out.println("Incorrect data");
       }
 
     }
 
-    // Imprime el objeto
+    //Prints the object
     System.out.println(request);
     System.out.println(request.computePremium());
 
   }
 
-  // Funciones del taller
+  //Workshop functions
   public double computePremium() {
 
     double totalPremium = this.premiumBase;
@@ -119,7 +118,8 @@ public class CarInsurance {
 
     if (this.age >= 45 && this.age < 65) {
       totalPremium = this.premiumBase - 100.0f;
-    } else if (this.age > 80) {
+      //Modification of Empirical Test 001
+    } else if (this.age > 80 || this.age <= 0) {
       return -1;
     }
 
