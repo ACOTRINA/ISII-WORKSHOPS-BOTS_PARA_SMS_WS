@@ -118,8 +118,7 @@ public class CarInsurance {
 
     if (this.age >= 45 && this.age < 65) {
       totalPremium = this.premiumBase - 100.0f;
-      //Modification of Empirical Test 001
-    } else if (this.age > 80 || this.age <= 0) {
+    } else if (this.age > 80) {
       return -1;
     }
 
