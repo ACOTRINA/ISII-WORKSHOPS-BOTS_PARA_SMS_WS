@@ -56,6 +56,8 @@ public class CarInsurance {
     CarInsurance request = null;
 
     boolean validData = false;
+    
+    
 
     while (!validData) {
 
@@ -90,7 +92,11 @@ public class CarInsurance {
 
   }
 
-  //Workshop functions
+  public CarInsurance() {
+    super();
+}
+
+//Workshop functions
   public double computePremium() {
 
     double totalPremium = this.premiumBase;
@@ -156,6 +162,8 @@ public class CarInsurance {
   public static void setPremiumBase(double premiumBase) {
     CarInsurance.premiumBase = premiumBase;
   }
+  
+  
 
   @Override
   public String toString() {
