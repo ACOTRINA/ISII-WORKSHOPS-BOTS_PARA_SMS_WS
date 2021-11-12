@@ -75,7 +75,7 @@ public class CarInsurance {
         if (!validStatus && !validGender) {
           throw new Exception();    
         }
-          
+        
         request = new CarInsurance(Integer.parseInt(age), gender.charAt(0), status.equals("Married")?MaritalStatus.married:MaritalStatus.not_married);
 
         validData = true;
@@ -114,16 +114,12 @@ public class CarInsurance {
         }
         break;
       case 'F':
-        if (this.status == MaritalStatus.not_married) {
-          break;
-        } else {
-          totalPremium -= 200.0f;
-        }
+        totalPremium -= 200.0f;
         break;
     }
 
     if (this.age >= 45 && this.age < 65) {
-      totalPremium = this.premiumBase - 100.0f;
+      totalPremium = totalPremium - 100.0f;
     } else if (this.age > 80) {
       return -1;
     }
@@ -163,12 +159,9 @@ public class CarInsurance {
     CarInsurance.premiumBase = premiumBase;
   }
   
-  
-
   @Override
   public String toString() {
     String mStatus = this.status == MaritalStatus.married ? "Married" : "Not Married";
     return String.format("Age: " + this.age + " - Gender: " + this.gender + " - Status: " + mStatus);
   }
-
 }
