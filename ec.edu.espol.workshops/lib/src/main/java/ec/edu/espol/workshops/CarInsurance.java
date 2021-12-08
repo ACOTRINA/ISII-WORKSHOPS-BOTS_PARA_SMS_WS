@@ -32,7 +32,7 @@ public class CarInsurance {
    */
   private MaritalStatus status;
   // Premium base
-  private static double premiumBase = 500.0f;
+  private static double premiumBase = 600.0f;
   
   /**
    * Constructor method of the class Car Insurance
