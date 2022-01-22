@@ -101,17 +101,28 @@ public class CarInsurance {
           if (this.age < 25) {
             totalPremium += 1500.0f;
           } else {
-            break;
+              break;
           }
         } else {
           totalPremium -= 200.0f;
+          if (this.age > 30 && this.age < 60) {
+              totalPremium -= 100.0f;
+          } 
         }
         break;
       case 'F':
         if (this.status == MaritalStatus.not_married) {
-          break;
-        } else {
+            if(this.age > 60) {
+                totalPremium -= 50.0f;
+            }else {
+                break;
+            }
+          
+        } else { 
           totalPremium -= 200.0f;
+          if (this.age > 30 && this.age < 60) {
+              totalPremium -= 100.0f;;
+          }          
         }
         break;
     }
